@@ -1,0 +1,273 @@
+/* Terminal — local Spicetify theme. No remote fonts or assets. */
+:root {
+  --tui-bg: #101211;
+  --tui-panel: #141715;
+  --tui-line: #485149;
+  --tui-muted: #98a399;
+  --tui-text: #dce2d8;
+  --tui-accent: #d6ba80;
+  --tui-selected: #29352b;
+  --font-family: "Cascadia Mono", "Consolas", "Microsoft YaHei", monospace;
+  --font-size: 12px;
+  --spice-main: var(--tui-bg);
+  --spice-sidebar: var(--tui-panel);
+  --spice-player: var(--tui-panel);
+  --spice-text: var(--tui-text);
+  --spice-subtext: var(--tui-muted);
+  --spice-button: var(--tui-accent);
+  --spice-button-active: var(--tui-accent);
+  --spice-highlight: var(--tui-selected);
+  --spice-header: var(--tui-accent);
+  --spice-border-inactive: var(--tui-line);
+  --spice-border-active: var(--tui-accent);
+}
+html, body, .Root, .Root__top-container {
+  background: var(--tui-bg) !important;
+  color: var(--tui-text) !important;
+}
+body *, body *::before, body *::after {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-family: var(--font-family) !important;
+  font-variant-numeric: tabular-nums;
+}
+body [data-encore-id="text"], body [data-encore-id="listRowTitle"],
+body [data-encore-id="listRowSubtitle"], body button, body input {
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+}
+body .encore-dark-theme, body .encore-base-set, body .encore-bright-accent-set,
+body .encore-inverted-light-set {
+  --background-base: var(--tui-panel);
+  --background-highlight: #202620;
+  --background-press: var(--tui-selected);
+  --background-elevated-base: var(--tui-panel);
+  --background-elevated-highlight: #202620;
+  --background-tinted-base: var(--tui-panel);
+  --background-tinted-highlight: #202620;
+  --text-base: var(--tui-text);
+  --text-subdued: var(--tui-muted);
+  --text-bright-accent: var(--tui-accent);
+  --essential-base: var(--tui-text);
+  --essential-subdued: var(--tui-muted);
+  --essential-bright-accent: var(--tui-accent);
+  --decorative-subdued: var(--tui-line);
+}
+.Root__top-container {
+  --panel-gap: 8px !important;
+  padding: 12px 10px 10px !important;
+  grid-template-rows: 0 52px minmax(0, 1fr) 112px !important;
+  row-gap: 12px !important;
+}
+.Root__globalNav, #Desktop_LeftSidebar_Id, #main-view,
+[data-tui-pane="INSPECT"], .main-nowPlayingBar-container {
+  border: 1px solid var(--tui-line) !important;
+  background: var(--tui-panel) !important;
+  position: relative;
+}
+.Root__globalNav:focus-within, #Desktop_LeftSidebar_Id:focus-within,
+#main-view:focus-within, [data-tui-pane="INSPECT"]:focus-within {
+  border-color: var(--tui-accent) !important;
+}
+.Root__globalNav::before, #Desktop_LeftSidebar_Id::before,
+#main-view::before, [data-tui-pane="INSPECT"]::before,
+.main-nowPlayingBar-container::before {
+  content: attr(data-tui-pane);
+  position: absolute !important;
+  z-index: 30;
+  top: -9px !important;
+  left: 10px !important;
+  margin: 0 !important;
+  padding: 0 5px;
+  background: var(--tui-bg);
+  color: var(--tui-accent) !important;
+  font-size: 10px !important;
+  line-height: 16px !important;
+  letter-spacing: .08em;
+  pointer-events: none;
+}
+.Root__globalNav { display: flex !important; align-items: center !important; gap: 8px !important; padding: 5px 10px !important; height: 48px !important; min-height: 48px !important; position: relative !important; inset: auto !important; margin: 0 !important; width: 100% !important; }
+.Root__globalNav [data-tui-nav-group] { display: flex !important; align-items: center !important; min-width: 0 !important; height: 36px !important; gap: 6px !important; }
+.Root__globalNav [data-tui-nav-group="left"] { flex: 0 0 auto !important; }
+.Root__globalNav [data-tui-nav-group="search"] { flex: 1 1 auto !important; }
+.Root__globalNav [data-tui-nav-group="right"] { flex: 0 0 auto !important; }
+.Root__globalNav [data-tui-home-group] { align-items: center !important; height: 36px !important; width: 100%; }
+.Root__globalNav .main-globalNav-historyButtonsWrapper { align-items: center !important; gap: 6px !important; height: 36px !important; }
+.Root__globalNav .main-globalNav-historyButtonsWrapper > :empty { display: none !important; }
+.Root__globalNav .main-globalNav-historyButtons { gap: 4px !important; padding: 0 !important; }
+.Root__globalNav .custom-navlinks-scrollable_container { margin: 0 !important; padding: 0 !important; height: 36px !important; }
+.Root__globalNav .spicetify-sc-scroller { align-items: center !important; height: 36px !important; }
+.Root__globalNav [data-tui-nav-control] { display: inline-flex !important; align-items: center !important; justify-content: center !important; flex: 0 0 auto !important; min-width: 30px !important; height: 32px !important; min-height: 32px !important; padding: 4px 6px !important; margin-block: 0 !important; transform: none !important; }
+.Root__globalNav [data-tui-label] { width: auto !important; }
+.Root__globalNav [data-tui-label] > * { display: none !important; }
+.Root__globalNav [data-tui-label]::after { content: attr(data-tui-label); display: block; font-size: 11px !important; line-height: 20px !important; color: var(--tui-text); }
+.Root__globalNav [data-tui-label]:hover::after { color: var(--tui-accent); }
+.Root__globalNav input {
+  background: var(--tui-bg) !important;
+  color: var(--tui-text) !important;
+  box-shadow: inset 0 0 0 1px var(--tui-line) !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  padding-block: 0 !important;
+  padding-inline: 38px 96px !important;
+}
+.Root__globalNav form:has(input) { height: 34px !important; }
+.Root__globalNav [data-tui-home-group] > div { min-width: 0 !important; flex: 1 1 auto; }
+.Root__globalNav .main-globalNav-contentRight { gap: 8px !important; align-items: center !important; }
+.Root__globalNav .main-globalNav-contentRight > :empty { display: none !important; }
+/* Native controls are hidden by theme.js. F8 reveals them with reserved space. */
+html[data-tui-window-controls="hidden"] > body::after,
+html[data-tui-window-controls="hidden"] .Titlebar { display: none !important; }
+html[data-tui-window-controls="visible"] .Root__globalNav {
+  padding-left: 32px !important;
+  padding-right: 144px !important;
+}
+#search-dropdown { border: 1px solid var(--tui-line) !important; background: var(--tui-panel) !important; margin-top: 4px; }
+#search-dropdown > [data-overlayscrollbars="host"] { max-height: min(440px, 55vh) !important; background: var(--tui-panel) !important; padding: 12px !important; }
+#search-dropdown img { filter: grayscale(1) contrast(.9); }
+#search-dropdown [data-encore-id="listRow"] { border-bottom: 1px solid #252c26; background: transparent !important; }
+#search-dropdown [data-encore-id="listRow"]:hover { background: var(--tui-selected) !important; }
+#Desktop_LeftSidebar_Id { padding-top: 8px; }
+#Desktop_LeftSidebar_Id nav, #Desktop_LeftSidebar_Id .YourLibraryX { background: transparent !important; }
+#Desktop_LeftSidebar_Id img { filter: grayscale(1) contrast(.85); }
+#Desktop_LeftSidebar_Id [role="row"][aria-selected] { border-left: 2px solid transparent; }
+#Desktop_LeftSidebar_Id [role="row"][aria-selected="true"] { border-left-color: var(--tui-accent); background: var(--tui-selected) !important; }
+#Desktop_LeftSidebar_Id .main-yourLibraryX-header { padding-inline: 4px !important; }
+/* Collapsed library: short names replace large photo thumbnails. Expanded
+   library keeps its native titles and layout. Native virtual row heights stay intact. */
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-headerIsCollapsed) [data-encore-id="listRow"] { background: transparent !important; }
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-headerIsCollapsed) [data-encore-id="listRow"] img { visibility: hidden !important; }
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-headerIsCollapsed) [data-tui-index] { position: relative; }
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-headerIsCollapsed) [data-tui-index]::after {
+  content: attr(data-tui-short);
+  position: absolute;
+  inset: 8px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--tui-line);
+  color: var(--tui-muted);
+  background: var(--tui-panel);
+  pointer-events: none;
+  font-size: 10px;
+}
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-headerIsCollapsed) [data-tui-index]:hover::after,
+#Desktop_LeftSidebar_Id:has(.main-yourLibraryX-headerIsCollapsed) [data-tui-index]:has([class*="color-text-bright-accent"])::after {
+  color: var(--tui-accent); border-color: var(--tui-accent); background: var(--tui-selected);
+}
+#main-view { padding-top: 8px; overflow: visible !important; }
+#main-view .main-topBar-container { background: var(--tui-panel) !important; border-bottom: 1px solid var(--tui-line); }
+#main-view [data-testid="topbar"] > div:first-child { background: var(--tui-panel) !important; }
+#main-view [data-testid="topbar"] > div:first-child > div { background: none !important; }
+#main-view[data-tui-stuck="false"] .main-topBar-container,
+#main-view[data-tui-stuck="false"] [data-testid="topbar"] > div:first-child { background: transparent !important; border-bottom: 0 !important; }
+#main-view .contentSpacing { padding-inline: 12px !important; }
+#main-view [data-testid="entity-header"] { min-height: 110px !important; height: auto !important; padding-block: 18px !important; background: var(--tui-panel) !important; }
+#main-view [data-testid="entity-header"] > div { background-image: none !important; background-color: transparent !important; }
+#main-view [data-testid="entity-header"] [data-testid="playlist-image"] { display: none !important; }
+#main-view [data-testid="entity-header"] [data-testid="playlist-image"]:first-child { display: none !important; }
+#main-view [data-testid="entity-header"] .fNKYDxCRmEdXuXz641kR { display: none !important; }
+#main-view [data-testid="entityTitle"] h1 { font-size: 22px !important; line-height: 1.2 !important; font-weight: 600 !important; }
+#main-view [data-testid="entity-header"] + div { background: none !important; }
+#main-view [data-testid="action-bar"] { padding-block: 10px !important; background: var(--tui-panel) !important; }
+#main-view [data-testid="action-bar"] button { transform: none !important; }
+#main-view [role="grid"] { background: var(--tui-panel); }
+#main-view [role="row"]:has([role="columnheader"]) { background: var(--tui-panel) !important; border-bottom: 1px solid var(--tui-line); }
+#main-view [role="columnheader"] { color: var(--tui-accent) !important; text-transform: uppercase; letter-spacing: .06em; }
+#main-view [role="row"][aria-selected] > [role="presentation"] { border-bottom: 1px solid #252c26; }
+#main-view [role="gridcell"][aria-colindex="2"] > img { display: none !important; }
+#main-view [role="row"][aria-selected] [role="gridcell"][aria-colindex="2"] { column-gap: 0 !important; }
+#main-view [role="row"][aria-selected]:hover > [role="presentation"] { background: #202920 !important; }
+#main-view [role="row"][aria-selected="true"] > [role="presentation"],
+#main-view [role="row"][aria-selected]:focus-within > [role="presentation"] { background: var(--tui-selected) !important; box-shadow: inset 2px 0 var(--tui-accent) !important; }
+#main-view [role="row"][aria-selected] [class*="color-text-bright-accent"] { color: var(--tui-accent) !important; }
+#main-view [role="gridcell"] [class*="color-text-subdued"] { font-size: 11px !important; color: var(--tui-muted) !important; }
+#main-view [role="gridcell"] a { color: inherit; }
+/* Home uses the same quiet terminal surface as the track browser. */
+#main-view[data-tui-page="home"] main > div > div:not(:has(button,a)) { background: var(--tui-panel) !important; background-image: none !important; }
+#main-view [data-tui-home-filters], #main-view [data-tui-home-filters] > div { --background-base: var(--tui-panel) !important; background: var(--tui-panel) !important; background-image: none !important; }
+#main-view[data-tui-page="home"] [data-testid="shortcut-background"] { display: none !important; }
+#main-view [data-tui-home-shortcut] { background: #202620 !important; border: 1px solid var(--tui-line); }
+#main-view [data-tui-home-shortcut]:hover { background: var(--tui-selected) !important; }
+#main-view[data-tui-page="home"] img { filter: grayscale(1) contrast(.9); }
+#main-view[data-tui-page="home"] [data-encore-id="card"] { display: flex !important; flex-direction: column !important; gap: 8px; align-items: stretch; min-height: 0 !important; border: 1px solid var(--tui-line); background: var(--tui-panel) !important; padding: 10px !important; }
+#main-view[data-tui-page="home"] [data-encore-id="card"] > div:has(img) { width: 80px !important; max-width: 80px; height: 80px !important; min-height: 0 !important; margin: 0 !important; }
+#main-view[data-tui-page="home"] [data-encore-id="card"] > div:has(img) > div:first-child { width: 80px !important; height: 80px !important; }
+#main-view[data-tui-page="home"] .e-10860-card__column { width: 100%; align-items: stretch; }
+#main-view[data-tui-page="home"] [data-encore-id="cardTitle"] span { opacity: 1 !important; }
+#main-view[data-tui-page="home"] [data-encore-id="cardTitle"] { font-size: 13px !important; line-height: 1.4 !important; height: auto !important; }
+#main-view[data-tui-page="home"] [data-encore-id="cardSubtitle"] { font-size: 11px !important; }
+#main-view [data-encore-id="chip"] > span { background: #202620 !important; color: var(--tui-muted) !important; border: 1px solid var(--tui-line); }
+#main-view [data-encore-id="chip"][aria-checked="true"] > span { background: var(--tui-selected) !important; color: var(--tui-accent) !important; border-color: var(--tui-accent); }
+[data-tui-pane="INSPECT"] { padding-top: 8px; }
+[data-tui-pane="INSPECT"] aside { background: var(--tui-panel) !important; }
+.main-nowPlayingView-headerWrapper { padding: 8px 12px !important; min-height: 44px !important; border-bottom: 1px solid var(--tui-line); }
+[data-testid="NPV_Panel_OpenDiv"] { background: var(--tui-panel) !important; }
+[data-testid="NPV_Panel_OpenDiv"]::before { background: none !important; }
+[data-testid="track-visual-enhancement"] { max-width: 144px !important; margin: 12px auto !important; }
+[data-tui-art-shell] { height: 160px !important; min-height: 0 !important; max-height: 160px !important; aspect-ratio: auto !important; overflow: hidden; }
+[data-testid="track-visual-enhancement"] img { filter: grayscale(1) contrast(.9) !important; border: 1px solid var(--tui-line); }
+[data-testid="NPV_Panel_OpenDiv"] [data-testid="minimized-track-visual-enhancement"] { display: none !important; }
+[data-tui-pane="INSPECT"] [data-encore-id="card"],
+[data-tui-pane="INSPECT"] section { background: transparent !important; border: 1px solid var(--tui-line); padding: 12px !important; }
+[data-tui-pane="INSPECT"] img { filter: grayscale(1); }
+[data-tui-pane="INSPECT"] h2 { color: var(--tui-accent) !important; font-size: 11px !important; text-transform: uppercase; }
+[data-tui-section] { background: var(--tui-panel) !important; border: 1px solid var(--tui-line); padding: 10px !important; margin: 10px 12px !important; }
+[data-tui-section="About the artist"] { background-image: none !important; }
+[data-tui-section="About the artist"] img { display: none !important; }
+[data-tui-section="About the artist"] > div { background: var(--tui-panel) !important; }
+[data-tui-artist-art] { display: none !important; }
+[data-tui-artist-art] [data-tui-section] { margin: 0 !important; padding: 0 !important; border: 0; }
+[data-tui-artist-art] + div { background: var(--tui-panel) !important; border: 1px solid var(--tui-line); margin: 12px !important; padding: 12px !important; }
+[data-tui-artist-art] + div::before { content: "ARTIST"; display: block; margin-bottom: 12px; color: var(--tui-accent); font-size: 11px; }
+/* Player: visible transport and a real seek track, with no opacity/filter hack. */
+.main-nowPlayingBar-container { margin: 4px 0 0 !important; padding: 8px 12px !important; min-height: 100px !important; }
+.main-nowPlayingBar-nowPlayingBar { display: grid !important; grid-template-columns: minmax(0,1fr) 410px; grid-template-rows: 36px 44px; gap: 4px 12px; padding: 0 !important; height: 100% !important; align-items: center; }
+.main-nowPlayingBar-left { min-width: 0 !important; width: auto !important; padding: 0 !important; grid-column: 1; grid-row: 1; }
+.main-nowPlayingBar-center { min-width: 0 !important; max-width: none !important; width: 100% !important; grid-column: 1 / -1; grid-row: 2; }
+.main-nowPlayingBar-right { min-width: 0 !important; width: 100% !important; grid-column: 2; grid-row: 1; }
+.main-nowPlayingBar-extraControls { display: flex !important; align-items: center !important; gap: 4px !important; width: 100% !important; min-width: 0 !important; }
+.main-nowPlayingBar-extraControls > button,
+.main-nowPlayingBar-extraControls > div:not([data-testid="volume-bar"]),
+.main-nowPlayingBar-extraControls > span { flex: 0 0 32px !important; }
+.main-nowPlayingBar-extraControls button { width: 32px !important; height: 32px !important; }
+.main-nowPlayingBar-container [data-testid="volume-bar"] { display: flex !important; align-items: center !important; gap: 6px !important; flex: 1 0 216px !important; min-width: 216px !important; width: 216px !important; height: 32px !important; --slider-width: 132px; }
+.main-nowPlayingBar-container [data-testid="volume-bar"] > div { flex: 1 1 auto !important; min-width: 132px !important; width: 132px !important; }
+.main-nowPlayingBar-container [data-tui-volume-readout] { flex: 0 0 34px; text-align: right; color: var(--tui-accent); font-size: 11px; }
+.main-nowPlayingBar-container [data-testid="volume-bar"] .progress-bar { height: 28px !important; cursor: ew-resize; --progress-bar-height: 8px; }
+.main-nowPlayingBar-container [data-testid="volume-bar"] .progress-bar > [data-testid="progress-bar-background"] { height: 8px !important; top: 10px !important; transform: none !important; background: #344037 !important; }
+.main-nowPlayingBar-container [data-testid="volume-bar"] [data-testid="progress-bar-handle"] { display: block !important; width: 12px !important; height: 16px !important; top: 50% !important; margin: 0 !important; background: var(--tui-text) !important; border: 1px solid var(--tui-panel); transform: translateY(-50%) !important; }
+.main-nowPlayingBar-container [data-testid="volume-bar"] > div > div { height: 28px !important; }
+.main-nowPlayingBar-container [data-testid="cover-art-button"] { display: none !important; }
+.main-nowPlayingBar-container button:not(:disabled) { color: var(--tui-text) !important; opacity: 1 !important; filter: none !important; transform: none !important; }
+.main-nowPlayingBar-container button:not(:disabled) svg { color: inherit !important; fill: currentColor !important; filter: none !important; opacity: 1 !important; }
+.main-nowPlayingBar-container button:disabled { opacity: .4 !important; }
+.main-nowPlayingBar-container button[data-tui-label] { min-width: 34px !important; padding: 4px 5px !important; border: 1px solid var(--tui-line) !important; }
+.main-nowPlayingBar-container button[data-tui-label] > * { display: none !important; }
+.main-nowPlayingBar-container button[data-tui-label]::after { content: attr(data-tui-label); color: var(--tui-text); font-size: 12px !important; }
+.main-nowPlayingBar-container [data-testid="control-button-playpause"] { background: var(--tui-selected) !important; border-color: var(--tui-accent) !important; }
+.main-nowPlayingBar-container [data-testid="control-button-playpause"]::after { color: var(--tui-accent) !important; }
+.main-nowPlayingBar-container .playback-progressbar { opacity: 1 !important; }
+.main-nowPlayingBar-container .progress-bar { --progress-bar-height: 5px; --bg-color: #344037; --fg-color: var(--tui-accent); }
+.main-nowPlayingBar-container .progress-bar__bg, .main-nowPlayingBar-container [data-testid="progress-bar-background"] { background: #344037 !important; height: 5px !important; }
+.main-nowPlayingBar-container .progress-bar__fg, .main-nowPlayingBar-container [data-testid="progress-bar-foreground"] { background: var(--tui-accent) !important; }
+.main-nowPlayingBar-container .x-progressBar-fillColor { background: var(--tui-accent) !important; }
+.main-nowPlayingBar-container .playback-bar { width: 100% !important; gap: 8px !important; }
+.main-nowPlayingBar-container [data-testid="player-controls"] { height: 32px !important; margin-bottom: 4px !important; }
+.main-nowPlayingBar-container [data-testid="general-controls"] { gap: 8px !important; }
+button:focus-visible, a:focus-visible, [role="row"]:focus-visible { outline: 1px solid var(--tui-accent) !important; outline-offset: 2px !important; }
+button:hover { color: var(--tui-accent) !important; }
+[role="menu"], [role="dialog"] { background: var(--tui-panel) !important; border: 1px solid var(--tui-line) !important; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-thumb { background: var(--tui-line); }
+@media (max-width: 700px) {
+  .Root__top-container { grid-template-rows: 0 52px minmax(0,1fr) 148px !important; }
+  .main-nowPlayingBar-nowPlayingBar { grid-template-columns: minmax(0,1fr); grid-template-rows: 24px 36px 44px; gap: 4px; }
+  .main-nowPlayingBar-left { grid-column: 1; grid-row: 1; }
+  .main-nowPlayingBar-right { grid-column: 1; grid-row: 2; }
+  .main-nowPlayingBar-center { grid-column: 1; grid-row: 3; }
+  .Root__globalNav .main-actionButtons { gap: 0 !important; }
+}
+@media (prefers-reduced-motion: reduce) { body * { animation: none !important; transition: none !important; } }
