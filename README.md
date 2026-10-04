@@ -19,21 +19,52 @@ client.
 
 ## Install on Windows
 
-Install [Spicetify](https://spicetify.app/) first. Then run these commands in
-PowerShell from the folder where you want to keep the repository:
+Install and set up [Spicetify](https://spicetify.app/) first. Then paste this
+one command into PowerShell:
 
 ```powershell
-git clone https://github.com/braces157/spicetify-terminal.git
-$themeRoot = Join-Path (spicetify config-dir) 'Themes'
-New-Item -ItemType Directory -Path $themeRoot -Force | Out-Null
-Copy-Item -LiteralPath '.\spicetify-terminal\Terminal' -Destination $themeRoot -Recurse -Force
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/braces157/spicetify-terminal/main/install.ps1)))
+```
+
+The installer fetches the theme without Git, finds your Spicetify config,
+backs up the current Terminal files and config, and applies the theme. Spotify
+may restart. Re-running the command installs the latest version.
+
+Backups are saved under `TerminalBackups` beside your Spicetify config file.
+If installation fails, the script restores the files and settings it changed.
+It does not install Spotify or Spicetify.
+
+You can [download and inspect the script](install.ps1) before running it. It
+supports Windows PowerShell 5.1 and PowerShell 7.
+
+### Installer options
+
+After downloading the repository, these commands can be run from its folder:
+
+```powershell
+# Install from the downloaded copy, with no network fetch.
+.\install.ps1 -LocalSource .
+
+# Fetch the theme files without changing the selected theme or restarting Spotify.
+.\install.ps1 -NoApply
+
+# Install a particular GitHub branch, tag, or commit.
+.\install.ps1 -Ref main
+```
+
+Use `-SpicetifyPath 'C:\path\to\spicetify.exe'` for a portable Spicetify setup.
+If repository access is restricted, the installer can fall back to an
+authenticated GitHub CLI.
+
+### Manual installation
+
+Download the repository ZIP, extract it, and copy `Terminal` into the `Themes`
+folder beside the config file printed by `spicetify --config`. Then run:
+
+```powershell
 spicetify config current_theme Terminal color_scheme Terminal inject_css 1 inject_theme_js 1 replace_colors 1
 spicetify apply
 ```
-
-The repository is private, so cloning requires a GitHub account with access.
-You can also download its ZIP and copy the `Terminal` folder into the `Themes`
-folder inside the directory printed by `spicetify config-dir`.
 
 If a Marketplace theme is already active, deselect it in Marketplace before
 applying Terminal so its injected CSS does not override this theme.
@@ -47,9 +78,8 @@ Edit the installed `Terminal/color.ini` and the `--tui-*` variables in
 `Terminal/user.css`, then run `spicetify refresh`. The theme uses Cascadia Mono,
 Consolas, and system fallback fonts; it downloads no external fonts or images.
 
-To update from this repository, run `git pull` inside the cloned repository,
-copy its `Terminal` folder to your Spicetify `Themes` folder again, and run
-`spicetify refresh`.
+To update, run the install command again. You can also pull or download the
+latest repository and run `.\install.ps1 -LocalSource .`.
 
 ## Compatibility
 
